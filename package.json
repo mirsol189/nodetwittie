@@ -1,0 +1,22 @@
+{
+  "name": "nodetwittie",
+  "version": "0.0.1",
+  "description": "Spirent 2019 International Internship Program 2nd round screening process",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mirsol189/nodetwittie.git"
+  },
+  "author": "mirsol189",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mirsol189/nodetwittie/issues"
+  },
+  "homepage": "https://github.com/mirsol189/nodetwittie#readme",
+  "devDependencies": {
+    "nodemon": "^1.18.11"
+  }
+}
