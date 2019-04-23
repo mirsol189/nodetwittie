@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const path = require('path');
 const session = require('express-session');
 const flash = require('connect-flash');
+require('dotenv').config();
 
 //seperate routing by router
 const pageRouter = require('./routes/page');
@@ -25,12 +26,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 //cookieParser : interpret cookie in request
-app.use(cookieParser('mirsolsecret'));
+app.use(cookieParser(process.env.COOKIE_SECRET));
 //express-session : manage session
 app.use(session({
     resave: false,
     saveUninitialized: false,
-    secret: 'mirsolsecret',
+    secret: process.env.COOKIE_SECRET,
     cookie: {
         httpOnly: true,
         secure: false,
