@@ -22,7 +22,7 @@ block content
         .twit
           input.twit-user-id(type='hidden' value=twit.user.id)
           input.twit-id(type='hidden' value=twit.id)
-          .twit-author= twit.user.nick
+          .twit-author= twit.user.nickname
           -const follow = user && user.Followings.map(f => f.id).includes(twit.user.id);
           if user && user.id !== twit.user.id && !follow
             button.twit-follow Follow
