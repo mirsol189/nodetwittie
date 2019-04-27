@@ -8,9 +8,12 @@ require('dotenv').config();
 
 //seperate routing by router
 const pageRouter = require('./routes/page');
+//connect models with server
+const {sequelize} = require('./models');
 
 //make app by calling express package
 const app = express();
+sequelize.sync();
 
 //view engine setup
 app.set('views', path.join(__dirname, 'views'));
