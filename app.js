@@ -4,16 +4,20 @@ const morgan = require('morgan');
 const path = require('path');
 const session = require('express-session');
 const flash = require('connect-flash');
+const passport = require('passport');
 require('dotenv').config();
 
 //seperate routing by router
 const pageRouter = require('./routes/page');
 //connect models with server
 const {sequelize} = require('./models');
+//same as require('./passport/index.js');
+const passportConfig = require('./passport');
 
 //make app by calling express package
 const app = express();
 sequelize.sync();
+passportConfig(passport);
 
 //view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -42,6 +46,8 @@ app.use(session({
 }));
 //connect-flash : show one-time message
 app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/', pageRouter);
 

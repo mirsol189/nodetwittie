@@ -1,24 +1,25 @@
 const express = require('express');
+const {isLoggedIn, isNotLoggedIn} = require('./middlewares');
 
 const router = express.Router();
 
-router.get('/profile', (req, res) => {
-    res.render('profile', {title: 'My Profile | nodetwittie}', user: null});
+router.get('/profile', isLoggedIn, (req, res) => {
+    res.render('profile', {title: 'My Profile | nodetwittie', user: req.user});
 });
 
-router.get('/join', (req, res) => {
+router.get('/join', isNotLoggedIn, (req, res) => {
     res.render('join', {
-        title: 'Sign up',
-        user: null,
+        title: 'Sign up | nodetwittie',
+        user: req.user,
         joinError: req.flash('joinError'),
     });
 });
 
 router.get('/', (req, res, next) => {
     res.render('main', {
-        title: 'nodetwittie',
+        title: 'nodetwittie | nodetwittie',
         twits: [],
-        user: null,
+        user: req.user,
         loginError: req.flash('loginError'),
     });
 });
