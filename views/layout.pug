@@ -11,7 +11,7 @@ html
       .profile-wrap
         .profile
           if user && user.id
-            .user-name= 'Welcome back! ' + user.nickname
+            .user-name= 'Welcome back! ' + user.nick
             .half
               div Following List
               .count.following-count= user.Followings && user.Followings.length || 0

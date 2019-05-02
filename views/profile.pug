@@ -6,9 +6,9 @@ block content
       h2 Following List
       if user.Followings
         for following in user.Followings
-          div= following.nickname
+          div= following.nick
     .followers.half
       h2 Follower List
       if user.Followers
         for follower in user.Followers
-          div= follower.nickname
+          div= follower.nick

@@ -1,6 +1,6 @@
 {
   "name": "nodetwittie",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Spirent 2019 International Internship Program 2nd round screening process",
   "main": "app.js",
   "scripts": {
