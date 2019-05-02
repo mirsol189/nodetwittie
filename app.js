@@ -9,6 +9,9 @@ require('dotenv').config();
 
 //seperate routing by router
 const pageRouter = require('./routes/page');
+const authRouter = require('./routes/auth');
+const postRouter = require('./routes/post');
+const userRouter = require('./routes/user');
 //connect models with server
 const {sequelize} = require('./models');
 //same as require('./passport/index.js');
@@ -29,6 +32,7 @@ app.set('port', process.env.PORT || 9282);
 //morgan : show log
 app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/img', express.static(path.join(__dirname, 'uploads')));
 //express built in body-parser : interpret request
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
@@ -50,6 +54,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/', pageRouter);
+app.use('/auth', authRouter);
+app.use('/post', postRouter);
+app.use('/user', userRouter);
 
 //catch 404 and forward to error handler
 app.use((req, res, next) => {
