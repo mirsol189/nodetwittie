@@ -26,7 +26,7 @@ $ cd nodetwittie
 ```
 Before running nodetwittie server, enter:
 ```
-& sequelize db:create
+$ sequelize db:create
 ```
 to create database 'nodetwittie'.
 
