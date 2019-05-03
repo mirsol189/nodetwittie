@@ -18,7 +18,7 @@ module.exports = (passport) => {
           done(null, false, { message: 'Password does not match.' });
         }
       } else {
-        done(null, false, { message: 'Theres no such user' });
+        done(null, false, { message: 'There\'s no such user' });
       }
     } catch (error) {
       console.error(error);
