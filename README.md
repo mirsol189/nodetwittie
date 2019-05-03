@@ -24,6 +24,12 @@ After cloning this repository, change directory to nodetwittie directory.
 ```
 $ cd nodetwittie
 ```
+Before running nodetwittie server, enter:
+```
+& sequelize db:create
+```
+to create database 'nodetwittie'.
+
 To run nodetwittie server, enter:
 ```
 $ npm start
